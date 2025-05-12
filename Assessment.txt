@@ -18,11 +18,11 @@ from users
 where mobile_app="mobile-user";
 
 /*2*/
-SELECT sign_up_at,
-   strftime('%H', sign_up_at) hours
+SELECT strftime('%H', sign_up_at) AS sign_up_hour,
+       COUNT(*) AS sign_up_count
 FROM users
-GROUP BY 1
-LIMIT 20;
+GROUP BY sign_up_hour
+ORDER BY sign_up_hour;
 
 /*3*/  
 SELECT *
